@@ -1,6 +1,7 @@
 #!/bin/bash
 cp cb /usr/bin/cb
-chmod 755 /usr/bin/cb  
+chmod 755 /usr/bin/cb
+touch $HOME/.cd_log.txt
 
 read -r -d '' CD_FUNCTION << 'EOF'
 # Ensure no conflicting alias
