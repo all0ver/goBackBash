@@ -32,7 +32,7 @@ echo "0: Stay"
 
 for i in "${!lines[@]}"; do
   if [ "$i" -ne 0 ]; then
-    echo "$((i+1)): ${lines[i]}"
+    echo "$((i)): ${lines[i]}"
   fi
 done
 
