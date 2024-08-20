@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Move and set permissions for the binary
-mv cdb /usr/bin/cb
+mv cb /usr/bin/cb
 chmod 755 /usr/bin/cb  # More secure permission setting
 
 # Define the function to be added

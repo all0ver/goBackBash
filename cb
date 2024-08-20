@@ -40,8 +40,9 @@ read -p "Enter a number: " number
 
 if [[ "$number" =~ ^[0-9]+$ ]] && [ "$number" -ge 0 ] && [ "$number" -lt "${#lines[@]}" ]; then
   target_directory="${lines[$number]}"
-
-  if [ -d "$target_directory" ]; then
+  if [ "$number" -eq 0 ]; then
+    echo "You are in: ${PWD}"
+  elif [ -d "$target_directory" ]; then
     cd "$target_directory" || { echo "Failed to change directory to $target_directory"; exit 1; }
     echo "Changed directory to $target_directory"
   else
