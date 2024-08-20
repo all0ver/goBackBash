@@ -20,10 +20,10 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 file="$HOME/.cd_log.txt"
-lines=()
+lines=("${PWD}")
 while IFS= read -r line; do
   lines+=("$line")
-  [[ ${#lines[@]} -ge 9 ]] && break
+  [[ ${#lines[@]} -ge 8 ]] && break
 done < "$file"
 
 echo "You are currently in: ${PWD}"
@@ -32,7 +32,7 @@ echo "0: Stay"
 
 for i in "${!lines[@]}"; do
   if [ "$i" -ne 0 ]; then
-    echo "$((i)): ${lines[i]}"
+    echo "$((i+1)): ${lines[i]}"
   fi
 done
 
