@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Move and set permissions for the binary
-mv cdb /usr/bin/cdb
-chmod 755 /usr/bin/cdb  # More secure permission setting
+mv cdb /usr/bin/cb
+chmod 755 /usr/bin/cb  # More secure permission setting
 
 # Define the function to be added
 read -r -d '' CD_FUNCTION << 'EOF'

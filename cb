@@ -1,0 +1,54 @@
+#!/bin/bash
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -h|--help)
+            echo "Usage: cdb [options]"
+            echo "-h, --help      Display this help message"
+            echo "-v, --version   Display the version"
+            exit 0
+            shift 
+            ;;
+        -v|--version)
+            echo "cdb version 1.0"
+            exit 0
+            shift
+            ;;
+        *)
+            echo "Unknown option: $1"
+            shift
+            ;;
+    esac
+done
+file="$HOME/.cd_log.txt"
+lines=()
+while IFS= read -r line; do
+  lines+=("$line")
+  [[ ${#lines[@]} -ge 10 ]] && break
+done < "$file"
+
+echo "You are currently in: ${PWD}"
+echo "Where do you want to go:"
+echo "0: Stay"
+
+for i in "${!lines[@]}"; do
+  if [ "$i" -ne 0 ]; then
+    echo "$((i)): ${lines[i]}"
+  fi
+done
+
+read -p "Enter a number: " number
+
+if [[ "$number" =~ ^[0-9]+$ ]] && [ "$number" -ge 0 ] && [ "$number" -lt "${#lines[@]}" ]; then
+  target_directory="${lines[$number]}"
+
+  if [ -d "$target_directory" ]; then
+    cd "$target_directory" || { echo "Failed to change directory to $target_directory"; exit 1; }
+    echo "Changed directory to $target_directory"
+  else
+    echo "$target_directory is not a valid directory"
+  fi
+else
+  echo "$number is not a valid number or out of range"
+fi
+
+exec "$(basename "$SHELL")"
