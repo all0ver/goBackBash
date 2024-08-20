@@ -23,7 +23,7 @@ file="$HOME/.cd_log.txt"
 lines=()
 while IFS= read -r line; do
   lines+=("$line")
-  [[ ${#lines[@]} -ge 10 ]] && break
+  [[ ${#lines[@]} -ge 9 ]] && break
 done < "$file"
 
 echo "You are currently in: ${PWD}"
