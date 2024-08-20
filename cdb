@@ -12,3 +12,23 @@ echo "Where do you want to go:"
 # for ((i=1; i<${#my_array[@]}; i++)); do
 #     my_array[$((i-1))]="${my_array[$i]}"
 # done
+# Handle specific flags or arguments
+# while [[ $# -gt 0 ]]; do
+#     case $1 in
+#         -h|--help)
+#             echo "Usage: cdb [options]"
+#             echo "-h, --help      Display this help message"
+#             echo "-v, --version   Display the version"
+#             shift # Remove the argument from the list
+#             ;;
+#         -v|--version)
+#             echo "cdb version 1.0"
+#             shift
+#             ;;
+#         *)
+#             echo "Unknown option: $1"
+#             shift
+#             ;;
+#     esac
+# done
+
