@@ -1,0 +1,14 @@
+#!/bin/bash
+numberOfElements = 10
+prevDir = ()
+
+for i in {1...numberOfElements}; do
+  prevDir[i] =""
+done
+echo "You are in $(pwd)"
+echo "Where do you want to go:"
+
+# Shift elements to the left
+# for ((i=1; i<${#my_array[@]}; i++)); do
+#     my_array[$((i-1))]="${my_array[$i]}"
+# done
