@@ -11,7 +11,7 @@ If you decide to download this please read the code first, i do not have a deep 
 
 `gh repo clone all0ver/goBackBash`
 
-2. Run the install.sh file
+2. Run the install.sh file (not as root)
 
 `./install.sh`
 
